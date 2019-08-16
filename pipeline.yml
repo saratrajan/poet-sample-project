@@ -1,0 +1,10 @@
+pipeline:
+  appName: poet-test
+  appVersion:
+    master: 1.0.0
+  steps:
+    - name: hello-poet
+      image: bash
+      commands:
+        - ls -lrta
+        - echo "Hello POET!!!"
