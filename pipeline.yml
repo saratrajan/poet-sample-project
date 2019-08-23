@@ -18,7 +18,7 @@ pipeline:
       commands:
         - ls -lrta
         - echo "Hello POET!!!"
-    # Remote templated step: Docker    
-    - include: templates/docker-step.yml@remote-templates
+    # Remote templated step: Ruby    
+    - include: templates/ruby-step.yml@remote-templates
     # Remote templated step: Python
     - include: templates/python-step.yml@remote-templates
