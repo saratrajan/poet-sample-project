@@ -1,15 +1,5 @@
-resources:
-  repositories:
-    - name: remote-templates
-      uri: git@github.com:tmobile/POET-pipeline-demo.git
-      # label is optional (defaults to master), and can reference branch, tag, commit
-      label: feature/templates      
-      # Note that credentials details may change based on how they are setup on your Pipeline Engine
-      credentials:
-        id: SSH_Key_GitHub
-
 pipeline:
-  appName: poet-test
+  appName: poet-demo
   appVersion:
     master: 1.0.0
   steps:
@@ -18,7 +8,11 @@ pipeline:
       commands:
         - ls -lrta
         - echo "Hello POET!!!"
-    # Remote templated step: Ruby    
-    - include: templates/ruby-step.yml@remote-templates
-    # Remote templated step: Python
-    - include: templates/python-step.yml@remote-templates
+    - name: templated-python
+      image: python:3.5.7-alpine
+      commands:
+        - python -v
+    - name: templated-ruby
+      image: ruby:2.5-alpine
+      commands:
+        - ruby -v
